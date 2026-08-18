@@ -17,7 +17,7 @@ function AttachmentUpload({ purchaseId, onUploaded }) {
             const result = await uploadAttachment(purchaseId, attachmentType, file);
             setFile(null);
             event.currentTarget.reset();
-            setStatus({ type: "success", message: result.message || "Attachment uploaded successfully." });
+            setStatus({ type: "success", message: result?.message || "Attachment uploaded successfully." });
             onUploaded?.();
         } catch (error) {
             setStatus({ type: "error", message: error.response?.data?.message || "Upload failed. Please try again." });
