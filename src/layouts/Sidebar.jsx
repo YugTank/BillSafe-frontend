@@ -1,8 +1,9 @@
-import { Home, LogOut, Menu, Package, Shield, X } from "lucide-react";
+import { Home, LogOut, Menu, Package, X } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useAuth } from "../context/useAuth";
+import billsafeLogo from "../assets/billsafe-logo.png";
 
 function Sidebar() {
     const navigate = useNavigate();
@@ -24,9 +25,7 @@ function Sidebar() {
         <aside className={`sidebar ${mobileOpen ? "mobile-open" : ""}`}>
             <div className="sidebar-header">
                 <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="brand-link">
-                    <div style={{ display: 'flex', height: 32, width: 32, alignItems: 'center', justifyContent: 'center', borderRadius: 8, background: 'rgba(249,115,22,0.08)', color: '#f97316' }}>
-                        <Shield size={16} strokeWidth={2.2} />
-                    </div>
+                    <img className="brand-logo" src={billsafeLogo} alt="BillSafe" />
                     <h1 className="brand-name">BillSafe</h1>
                 </Link>
                 <button className="mobile-menu-toggle" type="button" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation">
