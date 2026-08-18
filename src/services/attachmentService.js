@@ -15,7 +15,11 @@ export const uploadAttachment = async (purchaseId, attachmentType, file) => {
     return response.data;
 };
 
-export const downloadAttachment = async (attachmentId) => {
-    const response = await api.get(`/${attachmentId}/download`, { responseType: 'blob' });
+export const downloadAttachment = async (purchaseId, attachmentId) => {
+    const response = await api.get(`/${purchaseId}/attachments/${attachmentId}/download`, { responseType: 'blob' });
     return response.data;
+};
+
+export const deleteAttachment = async (purchaseId, attachmentId) => {
+    await api.delete(`/${purchaseId}/attachments/${attachmentId}`);
 };
